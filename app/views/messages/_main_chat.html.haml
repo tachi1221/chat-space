@@ -1,0 +1,51 @@
+.mainChat
+  
+  .mainChat__groupInfo
+    .mainChat__groupInfo__leftBox
+      %p.mainChat__groupInfo__leftBox__currentGroup 
+        初見さん
+      %ul.mainChat__groupInfo__leftBox__memberList 
+        Member :
+        %li.mainChat__groupInfo__leftBox__memberList__member
+          tachi
+
+    .mainChat__groupInfo__editBtn 
+      = link_to "#", class: "mainChat__groupInfo__editBtn__edit" do
+        Edit
+        
+  .mainChat__messageList
+    .mainChat__messageList__message
+      .mainChat__messageList__message__messageInfo
+        %p.mainChat__messageList__message__messageInfo__talker
+          tachi
+        %p.mainChat__messageList__message__messageInfo__date
+          2020/3/1
+      %p.mainChat__messageList__message__text
+        おけまる
+    
+    .mainChat__messageList__message
+      .mainChat__messageList__message__messageInfo
+        %p.mainChat__messageList__message__messageInfo__talker
+          tachi
+        %p.mainChat__messageList__message__messageInfo__date
+          2020/3/1
+      %p.mainChat__messageList__message__text
+        Good morning
+
+    .mainChat__messageList__message
+      .mainChat__messageList__message__messageInfo
+        %p.mainChat__messageList__message__messageInfo__talker
+          tachi
+        %p.mainChat__messageList__message__messageInfo__date
+          2020/3/1
+      %p.mainChat__messageList__message__text
+        勉強辛いなう
+
+  .mainChat__messageForm
+    %form.newMessage
+      .inputBox
+        %input.inputBox__text{placeholder: "type a message", type:"text"}
+        %label.inputBox__image
+          %i.far.fa-image
+          %input.inputBox__image__file{type: "file"}
+        %input.inputBox__submitBtn{type: "submit", name: "commit", value: "Send"}
