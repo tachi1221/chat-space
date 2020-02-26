@@ -3,13 +3,13 @@
   .sideBar__sideHeader
     .sideBar__sideHeader__box
       %p.sideBar__sideHeader__box__userName 
-        Tachi
+        = current_user.name
       %ul.sideBar__sideHeader__box__icon
         %li.sideBar__sideHeader__box__icon__newGroup
           = link_to "#" do
             %i.far.fa-edit
         %li.sideBar__sideHeader__box__icon__editUser
-          = link_to "#" do
+          = link_to edit_user_path(current_user) do
             %i.fas.fa-cog
 
   .sideBar__groupList
