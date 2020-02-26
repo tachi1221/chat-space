@@ -6,27 +6,34 @@
         = current_user.name
       %ul.sideBar__sideHeader__box__icon
         %li.sideBar__sideHeader__box__icon__newGroup
-          = link_to "#" do
+          = link_to new_group_path do
             %i.far.fa-edit
         %li.sideBar__sideHeader__box__icon__editUser
           = link_to edit_user_path(current_user) do
             %i.fas.fa-cog
 
   .sideBar__groupList
-    .sideBar__groupList__group
-      %p.sideBar__groupList__group__groupName 
-        グループ名
-      %p.sideBar__groupList__group__latestMessage 
-        最新のメッセージ
+    - current_user.groups.each do |group|
+      .sideBar__groupList__group
+        = link_to '#' do
+          .sideBar__groupList__group__groupName 
+            = group.name
+          .sideBar__groupList__group__latestMessage 
+            メッセージはまだありません。
+    -# .sideBar__groupList__group
+    -#   %p.sideBar__groupList__group__groupName 
+    -#     グループ名
+    -#   %p.sideBar__groupList__group__latestMessage 
+    -#     最新のメッセージ
 
-    .sideBar__groupList__group
-      %p.sideBar__groupList__group__groupName 
-        グループ名
-      %p.sideBar__groupList__group__latestMessage 
-        最新のメッセージ
+    -# .sideBar__groupList__group
+    -#   %p.sideBar__groupList__group__groupName 
+    -#     グループ名
+    -#   %p.sideBar__groupList__group__latestMessage 
+    -#     最新のメッセージ
 
-    .sideBar__groupList__group
-      %p.sideBar__groupList__group__groupName 
-        グループ名
-      %p.sideBar__groupList__group__latestMessage 
-        最新のメッセージ
+    -# .sideBar__groupList__group
+    -#   %p.sideBar__groupList__group__groupName 
+    -#     グループ名
+    -#   %p.sideBar__groupList__group__latestMessage 
+    -#     最新のメッセージ
