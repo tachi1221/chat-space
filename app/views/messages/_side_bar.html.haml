@@ -1,25 +1,25 @@
 .sideBar
   
   .sideBar__sideHeader
-    .sideBar__sideHeader__box
-      %p.sideBar__sideHeader__box__userName 
+    .box
+      %p.box__userName 
         = current_user.name
-      %ul.sideBar__sideHeader__box__icon
-        %li.sideBar__sideHeader__box__icon__newGroup
+      %ul.box__icon
+        %li.box__icon__newGroup
           = link_to new_group_path do
             %i.far.fa-edit
-        %li.sideBar__sideHeader__box__icon__editUser
+        %li.box__icon__editUser
           = link_to edit_user_path(current_user) do
             %i.fas.fa-cog
 
   .sideBar__groupList
     - current_user.groups.each do |group|
-      .sideBar__groupList__group
-        = link_to '#' do
-          .sideBar__groupList__group__groupName 
+      .group
+        = link_to group_messages_path(group), class: 'group__groupUrl' do
+          .group__groupName 
             = group.name
-          .sideBar__groupList__group__latestMessage 
-            メッセージはまだありません。
+          .group__latestMessage 
+            = group.show_last_message
     -# .sideBar__groupList__group
     -#   %p.sideBar__groupList__group__groupName 
     -#     グループ名

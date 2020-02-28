@@ -15,7 +15,7 @@
     height: 100px;
     display: flex;
     align-items: center;
-    &__box {
+    .box {
       height: 20px;
       width: 260px;
       font-weight: bold;
@@ -40,10 +40,14 @@
   &__groupList {
     background-color: #2f3e51;
     height: calc(100vh - 100px);
-    &__group {
+    .group {
       padding: 20px 20px 40px;
       color: #ffffff;
       font-weight: bold;
+      &__groupUrl {
+        text-decoration: none;
+        color: white;
+      }
       &__groupName {
         font-size: 15px;
         margin-bottom: 5px;
@@ -66,7 +70,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &__leftBox {
+    .leftBox {
       padding-top: 35px;
       &__currentGroup {
         margin-bottom: 15px;
@@ -82,7 +86,7 @@
         }
       }
     }
-    &__editBtn {
+    .editBtn {
       border: 1px solid #38aef0;
       height: 40px;
       width: 72px;
@@ -100,7 +104,7 @@
     background-color: #fafafa;
     height: calc(100vh - 190px);
     padding: 35px 40px;
-    &__message {
+    .message {
       padding-bottom: 46px;
       &__messageInfo {
         display: flex;
