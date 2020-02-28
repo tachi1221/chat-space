@@ -1,51 +1,63 @@
 .mainChat
   
   .mainChat__groupInfo
-    .mainChat__groupInfo__leftBox
-      %p.mainChat__groupInfo__leftBox__currentGroup 
-        初見さん
-      %ul.mainChat__groupInfo__leftBox__memberList 
+    .leftBox
+      %p.leftBox__currentGroup 
+        = @group.name
+      %ul.leftBox__memberList 
         Member :
-        %li.mainChat__groupInfo__leftBox__memberList__member
-          tachi
+        %li.leftBox__memberList__member
+          - @members.each do |member|
+            = member.name
 
-    .mainChat__groupInfo__editBtn 
-      = link_to "#", class: "mainChat__groupInfo__editBtn__edit" do
+    .editBtn 
+      = link_to edit_group_path(@group.id), class: "editBtn__edit" do
         Edit
         
   .mainChat__messageList
-    .mainChat__messageList__message
-      .mainChat__messageList__message__messageInfo
-        %p.mainChat__messageList__message__messageInfo__talker
-          tachi
-        %p.mainChat__messageList__message__messageInfo__date
-          2020/3/1
-      %p.mainChat__messageList__message__text
-        おけまる
+    = render @messages
+
+  -# .mainChat__messageList
+  -#   .message
+  -#     .message__messageInfo
+  -#       %p.message__messageInfo__talker
+  -#         tachi
+  -#       %p.message__messageInfo__date
+  -#         2020/3/1
+  -#     %p.message__text
+  -#       おけまるbot
     
-    .mainChat__messageList__message
-      .mainChat__messageList__message__messageInfo
-        %p.mainChat__messageList__message__messageInfo__talker
-          tachi
-        %p.mainChat__messageList__message__messageInfo__date
-          2020/3/1
-      %p.mainChat__messageList__message__text
-        Good morning
+  -#   .message
+  -#     .message__messageInfo
+  -#       %p.message__messageInfo__talker
+  -#         tachi
+  -#       %p.message__messageInfo__date
+  -#         2020/3/1
+  -#     %p.message__text
+  -#       Good morning
 
-    .mainChat__messageList__message
-      .mainChat__messageList__message__messageInfo
-        %p.mainChat__messageList__message__messageInfo__talker
-          tachi
-        %p.mainChat__messageList__message__messageInfo__date
-          2020/3/1
-      %p.mainChat__messageList__message__text
-        勉強辛いなう
-
+  -#   .message
+  -#     .message__messageInfo
+  -#       %p.message__messageInfo__talker
+  -#         tachi
+  -#       %p.message__messageInfo__date
+  -#         2020/3/1
+  -#     %p.message__text
+  -#       勉強辛いなう
+  
   .mainChat__messageForm
-    %form.newMessage
+    = form_for [@group, @message] do |f|
       .inputBox
-        %input.inputBox__text{placeholder: "type a message", type:"text"}
-        %label.inputBox__image
+        = f.text_field :content, class: 'inputBox__text', placeholder: 'type a message'
+        = f.label :image, class: 'inputBox__image' do
           %i.far.fa-image
-          %input.inputBox__image__file{type: "file"}
-        %input.inputBox__submitBtn{type: "submit", name: "commit", value: "Send"}
+          = f.file_field :image, class: 'inputBox__image__file'
+        = f.submit 'Send', class: 'inputBox__submitBtn'
+  -# .mainChat__messageForm
+  -#   %form.newMessage
+  -#     .inputBox
+  -#       %input.inputBox__text{placeholder: "type a message", type:"text"}
+  -#       %label.inputBox__image
+  -#         %i.far.fa-image
+  -#         %input.inputBox__image__file{type: "file"}
+  -#       %input.inputBox__submitBtn{type: "submit", name: "commit", value: "Send"}
