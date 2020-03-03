@@ -16,34 +16,6 @@
         
   .mainChat__messageList
     = render @messages
-
-  -# .mainChat__messageList
-  -#   .message
-  -#     .message__messageInfo
-  -#       %p.message__messageInfo__talker
-  -#         tachi
-  -#       %p.message__messageInfo__date
-  -#         2020/3/1
-  -#     %p.message__text
-  -#       おけまるbot
-    
-  -#   .message
-  -#     .message__messageInfo
-  -#       %p.message__messageInfo__talker
-  -#         tachi
-  -#       %p.message__messageInfo__date
-  -#         2020/3/1
-  -#     %p.message__text
-  -#       Good morning
-
-  -#   .message
-  -#     .message__messageInfo
-  -#       %p.message__messageInfo__talker
-  -#         tachi
-  -#       %p.message__messageInfo__date
-  -#         2020/3/1
-  -#     %p.message__text
-  -#       勉強辛いなう
   
   .mainChat__messageForm
     = form_for [@group, @message] do |f|
@@ -53,11 +25,4 @@
           %i.far.fa-image
           = f.file_field :image, class: 'inputBox__image__file'
         = f.submit 'Send', class: 'inputBox__submitBtn'
-  -# .mainChat__messageForm
-  -#   %form.newMessage
-  -#     .inputBox
-  -#       %input.inputBox__text{placeholder: "type a message", type:"text"}
-  -#       %label.inputBox__image
-  -#         %i.far.fa-image
-  -#         %input.inputBox__image__file{type: "file"}
-  -#       %input.inputBox__submitBtn{type: "submit", name: "commit", value: "Send"}
+ 
